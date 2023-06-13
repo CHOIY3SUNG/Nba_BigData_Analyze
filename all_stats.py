@@ -13,18 +13,25 @@ stats_and_outcomes = games[
         "GAME_DATE",
         "TEAM_NAME",
         "PTS",
-        "AST",
-        "REB",
-        "TOV",
         "FG_PCT",
+        "FG3M",
         "FG3A",
-        "FGA",
-        "PF",
+        "FG3_PCT",
+        "FTM",
+        "FTA",
+        "FT_PCT",
+        "OREB",
+        "DREB",
+        "REB",
+        "AST",
+        "STL",
         "BLK",
+        "TOV",
+        "PF",
+        "PLUS_MINUS",
         "WL",
     ]
 ]
-
 # Replace "W" with 1 and "L" with 0 in the WL column
 stats_and_outcomes["WL"] = stats_and_outcomes["WL"].replace({"W": 1, "L": 0})
 
@@ -35,6 +42,6 @@ stats_and_outcomes["WL"].fillna(-1, inplace=True)
 stats_and_outcomes["WL"] = stats_and_outcomes["WL"].astype(int)
 
 # Save the statistics and outcomes as a CSV file
-stats_and_outcomes.to_csv("./visualization/nba_stats.csv", index=False)
+stats_and_outcomes.to_csv("./visualization/all_stats.csv", index=False)
 
 print(stats_and_outcomes)
