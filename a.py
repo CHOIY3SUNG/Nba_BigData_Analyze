@@ -78,6 +78,7 @@ game_data_l = pd.DataFrame(
 
 def printf(game):
     res = result.predict_game_outcomes(game)
+    total: int = len(res)
     w = 0
     l = 0
 
@@ -87,7 +88,13 @@ def printf(game):
         else:
             l += 1
 
-    print(f"승리 : {w}\n패배 : {l}\n ")
+    if w >= l:
+        total = w / total
+    else:
+        total = l / total
+
+    print(f"\n승리 : {w}\n패배 : {l}\n정확도 : {total * 100}% ")
 
 
 printf(game_data)
+printf(game_data_l)
